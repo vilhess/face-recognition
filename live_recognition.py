@@ -78,7 +78,7 @@ def main():
 
         if picture is not None:
             # Enregistrer la nouvelle image
-            with open("function_cam/pic/test.jpg", "wb") as f:
+            with open("function_cam/test.jpg", "wb") as f:
                 f.write(picture.getbuffer())
 
             # Demander le nom de l'utilisateur
@@ -89,7 +89,7 @@ def main():
 
             # Encoder le nouveau visage
             new_pic = face_recognition.load_image_file(
-                "function_cam/pic/test.jpg")
+                "function_cam/test.jpg")
             new_pic_encoding = face_recognition.face_encodings(new_pic)[0]
 
             # Ajouter le nouveau visage aux encodages de visage connus et aux noms
@@ -104,7 +104,7 @@ def main():
                 "function_cam/known_face_names", 'wb'))
 
             # Analyser l'image
-            age, emotion, gender = analyze_image("function_cam/pic/test.jpg")
+            age, emotion, gender = analyze_image("function_cam/test.jpg")
 
             # Afficher les résultats de l'analyse
             if age is not None and emotion is not None and gender is not None:
@@ -162,15 +162,18 @@ def main():
             # Bouton pour supprimer les reconnaissances précédentes
             st.subheader("")
             st.subheader("")
-            if st.button('delete previous recognition'):
-                known_face_encodings = []
-                known_face_names = []
+    if st.button('delete previous recognition'):
+        try:
+            known_face_encodings = []
+            known_face_names = []
 
-                pickle.dump(known_face_encodings, open(
-                    "function_cam/known_face_encodings", 'wb'))
-                pickle.dump(known_face_names, open(
-                    "function_cam/known_face_names", 'wb'))
-                os.remove("function_cam/pic/test.jpg")
+            pickle.dump(known_face_encodings, open(
+                        "function_cam/known_face_encodings", 'wb'))
+            pickle.dump(known_face_names, open(
+                        "function_cam/known_face_names", 'wb'))
+            os.remove("function_cam/test.jpg")
+        except:
+            st.write("No previous recognition")
 
 
 main()
