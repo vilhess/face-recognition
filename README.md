@@ -32,8 +32,6 @@ streamlit run live_recognition.py
 
 - The system may not always recognize faces accurately, so it is important to verify the results manually. 🔍
 
-## Credits 👏
 
-This project was created by [VILHES Samy](https://github.com/vilhess). 😄
 
 
