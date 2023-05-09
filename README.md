@@ -1,6 +1,6 @@
 # Face Analysis and Recognition 📷
 
-This project allows you to analyze and recognize faces using a webcam or uploaded photos. The project utilizes the OpenCV, Streamlit, face_recognition, and DeepFace libraries to detect faces, analyze emotions, and recognize individuals.
+This project allows you to analyze and recognize faces using a webcam or uploaded photos using streamlit. The project utilizes the OpenCV, Streamlit, face_recognition, and DeepFace libraries to detect faces, analyze emotions, and recognize individuals.
 
 ## Installation 💻
 
